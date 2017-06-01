@@ -2,7 +2,7 @@ from os.path import join
 
 import pandas as pd
 import os
-
+import io
 
 class TaggedCorpus:
     def __init__(self, sentences=[]):
@@ -11,7 +11,8 @@ class TaggedCorpus:
     def save(self, filepath):
         sentences = self.sentences
         content = "\n\n".join(["\n".join(["\t".join(t) for t in s]) for s in sentences])
-        open(filepath, "w").write(content.encode("utf-8"))
+        with io.open(filepath, "w", newline="\n", encoding="utf-8") as f:
+            f.write(content)
 
     def _parse_sentence(self, text):
         tokens = text.split("\n")
@@ -45,17 +46,24 @@ class TaggedCorpus:
 
         df_analyze = pd.merge(df_id, df_count, on=id)
         filename = join(output_folder, "column-%s-analyze.xlsx" % id)
+        print(u"Tags     : {}".format(df_analyze.shape[0]))
+        tags = df_analyze[id].to_dict().values()
+        tags = sorted(tags)
+        print(u"List tags: {}\n".format(u", ".join(tags)))
         df_analyze.to_excel(filename, index=False)
 
     def _analyze_first_token(self, df, id, output_folder="."):
         filename = join(output_folder, "column-%s-analyze.xlsx" % id)
         df_analyze = df[id].value_counts().reset_index(name="count")
-        df_analyze = df_analyze.rename({"index": "0"})
+        df_analyze = df_analyze.rename(columns={"index": "0"})
         df_analyze.to_excel(filename, index=False)
+        print(u"Words     : {}".format(df_analyze.shape[0]))
+        print(u"Top words : {}\n".format(u", ".join(df_analyze["0"].to_dict().values()[:20])))
 
     def analyze(self, output_folder="."):
         tokens = [token for sublist in self.sentences for token in sublist]
         df = pd.DataFrame(tokens)
+        print("Sentences : {}\n".format(len(self.sentences)))
         n = df.shape[1]
         self._analyze_first_token(df, 0, output_folder)
         for i in range(1, n):
