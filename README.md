@@ -25,9 +25,13 @@ List tags    : B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP,
 ## How to usage
 
 ```
+# clone project
 $ git clone git@github.com:magizbox/underthesea.chunking.git
 $ cd underthesea.chunking
+
+# create environment
 $ conda env create -f environment.yml
+$ source activate underthesea.chunking
 ```
 
 Last update: June 2017
