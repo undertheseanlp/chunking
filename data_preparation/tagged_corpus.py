@@ -46,25 +46,34 @@ class TaggedCorpus:
 
         df_analyze = pd.merge(df_id, df_count, on=id)
         filename = join(output_folder, "column-%s-analyze.xlsx" % id)
-        print(u"Tags     : {}".format(df_analyze.shape[0]))
+
+        log = u""
+        log += u"Tags         : {}\n".format(df_analyze.shape[0])
         tags = df_analyze[id].to_dict().values()
         tags = sorted(tags)
-        print(u"List tags: {}\n".format(u", ".join(tags)))
+        log += u"List tags    : {}\n".format(u", ".join(tags))
         df_analyze.to_excel(filename, index=False)
+        return log
 
     def _analyze_first_token(self, df, id, output_folder="."):
         filename = join(output_folder, "column-%s-analyze.xlsx" % id)
         df_analyze = df[id].value_counts().reset_index(name="count")
         df_analyze = df_analyze.rename(columns={"index": "0"})
         df_analyze.to_excel(filename, index=False)
-        print(u"Words     : {}".format(df_analyze.shape[0]))
-        print(u"Top words : {}\n".format(u", ".join(df_analyze["0"].to_dict().values()[:20])))
+        log = u""
+        log += u"Unique words : {}\n".format(df_analyze.shape[0])
+        log += u"Top words    : {}\n".format(u", ".join(df_analyze["0"].to_dict().values()[:20]))
+        return log
 
     def analyze(self, output_folder="."):
         tokens = [token for sublist in self.sentences for token in sublist]
         df = pd.DataFrame(tokens)
-        print("Sentences : {}\n".format(len(self.sentences)))
+        log = u""
+        log += u"Sentences    : {}\n".format(len(self.sentences))
         n = df.shape[1]
-        self._analyze_first_token(df, 0, output_folder)
+        log += self._analyze_first_token(df, 0, output_folder)
         for i in range(1, n):
-            self._analyze_field(df, i, output_folder)
+            log += self._analyze_field(df, i, output_folder)
+        print(log)
+        stat_file = join(output_folder, "stats.txt")
+        open(stat_file, "w").write(log.encode("utf-8"))

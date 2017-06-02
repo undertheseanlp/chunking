@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 from underscore import _
 
+from data_preparation.tagged_corpus import TaggedCorpus
 from models.crf_model.features.feature import word2features
 from models.crf_model.model_profiling import ModelProfiling
 from models.crf_model.transformer import Transformer
@@ -34,10 +35,10 @@ def convert_cm_to_log(cm, labels, line=5):
 
 
 def load_train_sents():
-    filepath = join(dirname(dirname(dirname(__file__))), "data", "vi-chunk.train")
-    content = open(filepath, "r").read()
-    sentences = content.split("\n\n")
-    sentences = [parse_sentence(s) for s in sentences]
+    filepath = join(dirname(dirname(dirname(__file__))), "data", "corpus_v1.txt")
+    tagged_corpus = TaggedCorpus()
+    tagged_corpus.load(filepath)
+    sentences = tagged_corpus.sentences
     return sentences
 
 
