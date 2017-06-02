@@ -27,24 +27,18 @@ class TaggedCorpus:
             sentences = [self._parse_sentence(s.strip()) for s in sentences if s.strip() != ""]
             self.sentences = sentences
 
-    def _analyze_field(self, df, id, output_folder="."):
+    def _analyze_field(self, df, id, output_folder=".", n_head=10):
         id = str(id)
         m = df.shape[1]
         df.columns = [str(i) for i in range(m)]
 
-        df_temp = df.groupby(id)["0"].value_counts().groupby(level=0).nlargest(10).to_frame()
-        tmp_filename = "tmp.xlsx"
-        df_temp.to_excel(tmp_filename)
-        df_temp = pd.read_excel(tmp_filename)
-        df_temp[id] = df_temp[id].fillna(method="ffill")
-        os.remove(tmp_filename)
-
-        df_id = df_temp.groupby(id)["0"].apply(lambda g: ", ".join(g)).reset_index(name="0")
-
-        df_count = df[id].value_counts().reset_index(name="count")
-        df_count = df_count.rename(columns={"index": id})
-
-        df_analyze = pd.merge(df_id, df_count, on=id)
+        agg_dict = dict()
+        agg_dict[id] = "size"
+        for i in range(int(id)):
+            agg_dict[str(i)] = lambda x: ", ".join(pd.value_counts(x).index[:n_head])
+        name_dict = dict()
+        name_dict[id] = "count"
+        df_analyze = df.groupby(id).agg(agg_dict).rename(columns=name_dict).reset_index()
         filename = join(output_folder, "column-%s-analyze.xlsx" % id)
 
         log = u""
