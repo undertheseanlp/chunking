@@ -1,0 +1,8 @@
+Sentences    : 2081input = "chunk_dev.txt"
+output = "dev"
+Unique words : 6364
+Top words    : ,, ., ", và, của, một, là, có, người, đã, được, những, không, cho, ở, :, với, trong, ..., -
+Tags         : 20
+List tags    : A, B, C, CH, E, I, L, M, N, Nc, Np, Nu, Ny, P, R, S, T, V, X, Y
+Tags         : 12
+List tags    : B-AP, B-NP, B-PP, B-QP, B-RP, B-VP, I-AP, I-NP, I-PP, I-QP, I-VP, O
