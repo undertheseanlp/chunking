@@ -1,11 +1,4 @@
 from os.path import dirname, join
-
-import pycrfsuite
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, \
-    f1_score
-from underscore import _
 from underthesea_flow.flow import Flow
 from underthesea_flow.model import Model
 from underthesea_flow.model.crf import CRF
@@ -15,24 +8,33 @@ from underthesea_flow.validation.validation import TrainTestSplitValidation
 
 from preprocess import load_data
 
-
-def convert_cm_to_log(cm, labels, line=5):
-    cm = cm.tolist()
-    cm = [" ".join([("%-" + str(line) + "s") % labels[index]] + map(
-        lambda i: ("%" + str(line) + "d") % i, row)) for index, row in
-          enumerate(cm)]
-    title = " " * (line + 1) + " ".join(
-        map(lambda i: ("%" + str(line) + "s") % i, labels))
-    cm.insert(0, title)
-    return cm
-
-
 if __name__ == '__main__':
-    # file = join(dirname(__file__), "corpus", "vlsp_chunk", "train.txt")
-    file = join(dirname(__file__), "corpus", "vlsp_chunk_sample", "train.txt")
-    sentences = load_data(file)
+    # =========================================================================#
+    # Start an experiment with flow
+    # =========================================================================#
     flow = Flow()
+
+    # =========================================================================#
+    #                               Data
+    # =========================================================================#
+
+    # for evaluation
+    # file = join(dirname(__file__), "corpus", "vlsp_chunk", "train.txt")
+    # file = join(dirname(__file__), "corpus", "vlsp_chunk_sample", "train.txt")
+    # sentences = load_data(file)
+
+    # for saving model
+    corpus_folder = join(dirname(__file__), "corpus", "vlsp_chunk")
+    train = join(corpus_folder, "train.txt")
+    dev = join(corpus_folder, "dev.txt")
+    test = join(corpus_folder, "test.txt")
+    sentences = load_data(train) + load_data(dev) + load_data(test)
+
     flow.data(sentences=sentences)
+
+    # =========================================================================#
+    #                                Transformer
+    # =========================================================================#
     template = [
         "T[0].lower", "T[-1].lower", "T[1].lower",
         "T[0].istitle", "T[-1].istitle", "T[1].istitle",
@@ -43,8 +45,12 @@ if __name__ == '__main__':
         "T[-3,-1][1]"
     ]
     transformer = TaggedTransformer(template)
+
     flow.transform(transformer)
 
+    # =========================================================================#
+    #                               Models
+    # =========================================================================#
     crf_params = {
         'c1': 1.0,  # coefficient for L1 penalty
         'c2': 1e-3,  # coefficient for L2 penalty
@@ -54,42 +60,14 @@ if __name__ == '__main__':
     }
     flow.add_model(Model(CRF(params=crf_params), "CRF"))
 
-    flow.add_score('f1')
-    flow.add_score('accuracy')
+    # =========================================================================#
+    #                              Evaluation
+    # =========================================================================#
+    flow.add_score('f1_chunk')
+    flow.add_score('accuracy_chunk')
 
     flow.set_validation(TrainTestSplitValidation(test_size=0.1))
 
-    flow.validation()
+    # flow.train()
 
-    # random_state = 10
-    # profile = ModelProfiling()
-    # profile.add("data", {"train": len(X_train), "test": len(X_test)})
-    # profile.add("model", model_params)
-    # profile.add("template", template)
-    #
-    # model_name = "chunking-crf-model"
-    # profile.start_train()
-    # trainer.train(model_name)
-    # profile.end_train()
-    #
-    # model = pycrfsuite.Tagger()
-    # model.open(model_name)
-    #
-    # y_test = _.flatten(y_test)
-    # y_pred = [model.tag(x) for x in X_test]
-    # y_pred = _.flatten(y_pred)
-    # labels = list(set(y_test).union(set(y_pred)))
-    #
-    # cm = confusion_matrix(y_test, y_pred, labels)
-    # cm = convert_cm_to_log(cm, labels)
-    # score = {
-    #     "accuracy": accuracy_score(y_test, y_pred),
-    #     "recall": recall_score(y_test, y_pred, average='weighted'),
-    #     "precision": precision_score(y_test, y_pred, average='weighted'),
-    #     "f1": f1_score(y_test, y_pred, average='weighted')
-    # }
-    # profile.add("score", score)
-    # profile.add("confusion matrix", cm)
-    #
-    # profile.save()
-    # profile.show()
+    flow.save_model("CRF", filename="crf")
