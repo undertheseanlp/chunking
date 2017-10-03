@@ -20,7 +20,7 @@ List tags    : B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP,
 ![](https://img.shields.io/badge/F1-85.1%25-red.svg)
 
 * Detail Reports, [link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
-* Vietnamese Chunking publications, [link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=26250307&single=true)
+* Related Works:
 
 ## How to usage
 

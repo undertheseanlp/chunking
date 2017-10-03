@@ -1,4 +1,4 @@
-Sentences    : 2081input = "chunk_dev.txt"
+Sentences    : 2081
 output = "dev"
 Unique words : 6364
 Top words    : ,, ., ", và, của, một, là, có, người, đã, được, những, không, cho, ở, :, với, trong, ..., -

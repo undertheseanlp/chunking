@@ -21,3 +21,5 @@ def sample_data(n=200):
 
 if __name__ == '__main__':
     sample_data()
+    # file = join(dirname(__file__), "corpus", "vlsp_chunk", "train.txt")
+    # load_data(file)

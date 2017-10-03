@@ -7,14 +7,12 @@ from sklearn.metrics import confusion_matrix, precision_score, recall_score, \
     f1_score
 from underscore import _
 from underthesea_flow.flow import Flow
+from underthesea_flow.model import Model
 from underthesea_flow.model.crf import CRF
 from underthesea_flow.reader.tagged_corpus import TaggedCorpus
 from underthesea_flow.transformer.tagged import TaggedTransformer
 from underthesea_flow.validation.validation import TrainTestSplitValidation
 
-from models.crf_model.features.feature import word2features
-from models.crf_model.model_profiling import ModelProfiling
-from models.crf_model.transformer import Transformer
 from preprocess import load_data
 
 
@@ -54,7 +52,7 @@ if __name__ == '__main__':
         # include transitions that are possible, but not observed
         'feature.possible_transitions': True
     }
-    flow.add_model(CRF(params=crf_params))
+    flow.add_model(Model(CRF(params=crf_params), "CRF"))
 
     flow.add_score('f1')
     flow.add_score('accuracy')
