@@ -20,7 +20,7 @@ List tags    : B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP,
 ![](https://img.shields.io/badge/F1-85.1%25-red.svg)
 
 * Detail Reports, [link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
-* Related Works:
+* Related Works: [Other Tools](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Tools#chunking), [Publications](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Publications#chunking), [State of The Art](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-SOTA#chunking), [Service](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Services#chunking)
 
 ## How to usage
 
@@ -34,4 +34,4 @@ $ conda env create -f environment.yml
 $ source activate underthesea.chunking
 ```
 
-Last update: June 2017
+Last update: October 2017
