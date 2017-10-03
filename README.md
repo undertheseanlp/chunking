@@ -20,18 +20,29 @@ List tags    : B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP,
 ![](https://img.shields.io/badge/F1-85.1%25-red.svg)
 
 * Detail Reports, [link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
-* Related Works: [Other Tools](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Tools#chunking), [Publications](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Publications#chunking), [State of The Art](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-SOTA#chunking), [Service](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Services#chunking)
 
 ## How to usage
 
-```
-# clone project
-$ git clone git@github.com:magizbox/underthesea.chunking.git
-$ cd underthesea.chunking
+Clone project
 
-# create environment
-$ conda env create -f environment.yml
-$ source activate underthesea.chunking
 ```
+$ git clone git@github.com:magizbox/underthesea.chunking.git
+```
+
+Create environment
+
+```
+$ cd underthesea.chunking
+$ conda create -n underthesea.pos_tag python=3.4
+$ pip install -r requirements.txt
+$ source activate underthesea.pos_tag
+```
+
+## Related Works
+
+* [Vietnamese Chunking Tools](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Tools#chunking)
+* [Vietnamese Chunking Publications](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Publications#chunking)
+* [Vietnamese Chunking State of The Art](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-SOTA#chunking)
+* [Vietnamese Chunking Service](https://github.com/magizbox/underthesea/wiki/Vietnamese-NLP-Services#chunking)
 
 Last update: October 2017
