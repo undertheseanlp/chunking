@@ -8,34 +8,36 @@ This repository contains experiments in Vietnamese Chunking problems. It is a pa
 Sentences    : 7855
 Unique words : 14245
 Top words    : ,, ., ", của, là, và, có, một, người, được, không, đã, những, cho, :, ..., ở, trong, với, đến
-POS Tags     : 28
-List tags    : A, Ab, C, CH, Cb, Cc, E, Eb, I, L, M, Mb, N, Nb, Nc, Np, Nu, Ny, P, Pb, R, T, V, Vb, Vy, X, Y, Z
-Chunking Tags: 21
-List tags    : B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP, I-MP, I-NP, I-PP, I-QP, I-VP,
-               I-WH , I-WP, I-XP, N-NP, O
+POS Tags (28): A, Ab, C, CH, Cb, Cc, E, Eb, I, L, M, Mb, N, Nb, Nc, Np, Nu, Ny, P, Pb, R, T, V, Vb, Vy, X, Y, Z
+Chunking Tags (21): B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP, I-MP, I-NP, I-PP, I-QP, I-VP, I-WH , I-WP, I-XP, N-NP, O
 ```
 
 ## Reports
 
 ![](https://img.shields.io/badge/F1-85.1%25-red.svg)
 
-* Detail Reports, [link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
+* [Detail Reports](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
 
-## How to usage
+## Usage
 
-Clone project
+**Setup Environment**
 
 ```
+# clone project
 $ git clone git@github.com:magizbox/underthesea.chunking.git
-```
 
-Create environment
-
-```
+# create environment
 $ cd underthesea.chunking
-$ conda create -n underthesea.pos_tag python=3.4
-$ pip install -r requirements.txt
+$ conda create -n underthesea.chunking python=3.4
+$ pip install -r requirement.txt
+```
+
+**Run experiment**
+
+```
 $ source activate underthesea.pos_tag
+$ cd underthesea.chunking
+$ python main.py
 ```
 
 ## Related Works
