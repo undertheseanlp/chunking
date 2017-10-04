@@ -1,6 +1,10 @@
 # Chunking Experiments
 
-This repository contains experiments in Vietnamese Chunking problems. It is a part of [underthesea](https://github.com/magizbox/underthesea) project.
+![](https://img.shields.io/badge/F1-85.1%25-red.svg)
+
+This repository contains experiments in Vietnamese Chunking problems. You can view detail report of each experiments in [this link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true).
+
+It is a part of [underthesea](https://github.com/magizbox/underthesea) project.
 
 ## Corpus Summary 
 
@@ -11,12 +15,6 @@ Top words    : ,, ., ", của, là, và, có, một, người, được, không,
 POS Tags (28): A, Ab, C, CH, Cb, Cc, E, Eb, I, L, M, Mb, N, Nb, Nc, Np, Nu, Ny, P, Pb, R, T, V, Vb, Vy, X, Y, Z
 Chunking Tags (21): B-AP, B-MP, B-NP, B-PP, B-QP, B-TP, B-VP, B-WH, B-WP, B-XP, I-AP, I-MP, I-NP, I-PP, I-QP, I-VP, I-WH , I-WP, I-XP, N-NP, O
 ```
-
-## Reports
-
-![](https://img.shields.io/badge/F1-85.1%25-red.svg)
-
-* [Detail Reports](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
 
 ## Usage
 
@@ -35,7 +33,7 @@ $ pip install -r requirement.txt
 **Run experiment**
 
 ```
-$ source activate underthesea.pos_tag
+$ source activate underthesea.chunking
 $ cd underthesea.chunking
 $ python main.py
 ```
