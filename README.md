@@ -5,7 +5,7 @@
 This repository contains experiments in Vietnamese Chunking problems. It is a part of [underthesea](https://github.com/magizbox/underthesea) project.
 
 * [Demo](http://magizbox.com:9386)
-* [Detail Report](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
+* [Detail Report](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/edit?usp=sharing)
 
 ## Corpus Summary 
 
