@@ -1,10 +1,11 @@
 from os.path import join, dirname
 from underthesea.util.singleton import Singleton
 import pycrfsuite
+import sys
 
-try:
+if sys.version_info >= (3, 0):
     from .tagged_feature import word2features
-except:
+else:
     from tagged_feature import word2features
 
 @Singleton
