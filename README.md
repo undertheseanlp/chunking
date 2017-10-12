@@ -1,10 +1,11 @@
-# Chunking Experiments
+# Underthesea Chunking
 
-![](https://img.shields.io/badge/F1-85.1%25-red.svg)
+![](https://img.shields.io/badge/build-passing-brightgreen.svg) ![](https://img.shields.io/badge/F1-85.1%25-red.svg)
 
-This repository contains experiments in Vietnamese Chunking problems. You can view detail report of each experiments in [this link](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true).
+This repository contains experiments in Vietnamese Chunking problems. It is a part of [underthesea](https://github.com/magizbox/underthesea) project.
 
-It is a part of [underthesea](https://github.com/magizbox/underthesea) project.
+* [Demo](http://magizbox.com:9386)
+* [Detail Report](https://docs.google.com/spreadsheets/d/17atXtvgstvqWZStr9WxDziL5zvQjiBnYH1qXYFb8L5g/pubhtml?gid=0&single=true)
 
 ## Corpus Summary 
 
@@ -26,15 +27,15 @@ $ git clone git@github.com:magizbox/underthesea.chunking.git
 
 # create environment
 $ cd underthesea.chunking
-$ conda create -n underthesea.chunking python=3.4
+$ conda create -n uts.chunking python=3.4
 $ pip install -r requirement.txt
 ```
 
-**Run experiment**
+**Run Experiments**
 
 ```
-$ source activate underthesea.chunking
 $ cd underthesea.chunking
+$ source activate uts.chunking
 $ python main.py
 ```
 
