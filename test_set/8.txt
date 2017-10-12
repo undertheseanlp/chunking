@@ -1,0 +1,10 @@
+# Bộ Công Thương xóa một tổng cục, giảm nhiều đầu mối
+Bộ	N	B-NP
+Công Thương	Np	I-NP
+xóa	V	B-VP
+một	M	B-NP
+tổng cục	N	B-NP
+,	CH	O
+giảm	V	B-VP
+nhiều	A	B-AP
+đầu mối	N	B-NP

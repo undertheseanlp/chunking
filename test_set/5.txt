@@ -1,0 +1,9 @@
+# Quốc hội sắp miễn nhiệm Tổng Thanh tra Chính phủ và Bộ trưởng GTVT
+Quốc hội	N	B-NP
+sắp	R	O
+miễn nhiệm	V	B-VP
+Tổng Thanh tra	N	B-VP
+Chính phủ	N	B-NP
+và	C	O
+Bộ trưởng	N	B-NP
+GTVT	Np	B-NP

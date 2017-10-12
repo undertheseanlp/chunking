@@ -1,0 +1,10 @@
+# Lao động Việt tử vong khi vừa sang Đài Loan ít ngày
+Lao động	N	B-NP
+Việt	Np	B-NP
+tử vong	V	B-VP
+khi	N	B-NP
+vừa	R	O
+sang	V	B-VP
+Đài Loan	Np	B-NP
+ít	A	B-AP
+ngày	N	B-NP

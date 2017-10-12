@@ -1,0 +1,18 @@
+# Nghi vấn trường “ bớt xén ” bữa ăn của học sinh : Ý kiến của Trưởng Phòng GD - ĐT TP Thanh Hóa
+Nghi vấn	V	B-VP
+trường	N	B-NP
+“	CH	O
+bớt xén	N	B-NP
+”	CH	O
+bữa ăn	N	B-NP
+của	E	B-PP
+học sinh	N	B-NP
+:	CH	O
+Ý kiến	N	B-NP
+của	E	B-PP
+Trưởng Phòng	Np	B-NP
+GD	Np	I-NP
+-	CH	O
+ĐT	Ny	B-NP
+TP	Ny	B-NP
+Thanh Hóa	Np	B-NP

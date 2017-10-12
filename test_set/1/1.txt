@@ -1,0 +1,17 @@
+# " Chỗ này xưa là đồn bót nè ! Kia là những ngôi nhà vách đất .
+"	CH	O
+Chỗ	N	B-NP
+này	P	B-NP
+xưa	N	B-NP
+là	V	B-VP
+đồn bót	N	B-NP
+nè	T	O
+!	CH	O
+Kia	Np	B-NP
+là	V	B-VP
+những	L	B-NP
+ngôi	Nc	B-NP
+nhà	N	B-NP
+vách	N	B-NP
+đất	N	B-NP
+.	CH	O

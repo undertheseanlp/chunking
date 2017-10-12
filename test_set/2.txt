@@ -1,0 +1,12 @@
+# Tổng cục Môi trường sẽ được “tái cơ cấu” như thế nào?
+Tổng cục	N	B-NP
+Môi trường	N	B-NP
+sẽ	R	O
+được	V	B-VP
+“	CH	O
+tái	Z	O
+cơ cấu	N	B-NP
+”	CH	O
+như	C	O
+thế nào	P	B-NP
+?	CH	O
